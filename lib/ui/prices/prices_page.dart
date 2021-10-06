@@ -41,10 +41,10 @@ class _PricesPageState extends State<PricesPage> {
                 const TitleList(),
                 Expanded(
                   child: ListView.builder(
-                      itemCount: 14,
+                      itemCount: state.response.listData.length,
                       itemBuilder: (BuildContext context, int index) {
                         return PriceCard(
-                          amount: "$index",
+                          data: state.response.listData[index],
                         );
                       }),
                 )

@@ -1,11 +1,11 @@
-
+import 'package:bitcoins/data/model/data.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PriceCard extends StatefulWidget {
-  const PriceCard({Key? key, required this.amount}) : super(key: key);
+  const PriceCard({Key? key, required this.data}) : super(key: key);
 
-  final String amount;
+  final Data data;
 
   @override
   _PriceCardState createState() => _PriceCardState();
@@ -17,6 +17,8 @@ class _PriceCardState extends State<PriceCard> {
     return SizedBox(
       height: 100,
       child: Card(
+        elevation: 2,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         child: Row(
           children: [
             Expanded(
@@ -35,15 +37,15 @@ class _PriceCardState extends State<PriceCard> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     Padding(
-                      padding: EdgeInsets.only(bottom: 8.0),
-                      child: Text("BTC"),
+                      padding: const EdgeInsets.only(bottom: 8.0),
+                      child: Text(widget.data.base),
                     ),
                     Text(
-                      "2021-10-05",
-                      style:
-                          TextStyle(color: Color(0xFF70768E), fontSize: 12),
+                      widget.data.date,
+                      style: const TextStyle(
+                          color: Color(0xFF70768E), fontSize: 12),
                     )
                   ],
                 )),
@@ -55,7 +57,7 @@ class _PriceCardState extends State<PriceCard> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
-                        "\$ ${widget.amount}",
+                        "\$ ${widget.data.amount}",
                         style: const TextStyle(fontSize: 20),
                       )
                     ],

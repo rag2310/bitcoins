@@ -9,6 +9,7 @@ abstract class Response {
 
 class Success extends Response {
   late Data data;
+  late List<Data> listData;
 
   Success({required this.data});
 }
