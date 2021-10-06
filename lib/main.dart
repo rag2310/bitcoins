@@ -1,5 +1,6 @@
 import 'package:bitcoins/ui/main_page.dart';
 import 'package:bitcoins/ui/prices/prices_page.dart';
+import 'package:bitcoins/values/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,11 +19,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Bitcoins',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: primaryColor),
       home: BlocProvider(
-          create: (_) => PricesBloc(Prices()), child: const MainPage(child: PricesPage(),)),
+          create: (_) => PricesBloc(Prices()),
+          child: const MainPage(
+            child: PricesPage(),
+          )),
     );
   }
 }

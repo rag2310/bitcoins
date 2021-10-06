@@ -1,10 +1,12 @@
 import 'package:bitcoins/bloc/prices/prices_bloc.dart';
+import 'package:bitcoins/ui/prices/widgets/price_card.dart';
+import 'package:bitcoins/ui/prices/widgets/title_list.dart';
+import 'package:bitcoins/ui/prices/widgets/today_price.dart';
 import 'package:bitcoins/ui/widgets/error.dart';
 import 'package:bitcoins/ui/widgets/loading.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PricesPage extends StatefulWidget {
   const PricesPage({Key? key}) : super(key: key);
@@ -25,37 +27,29 @@ class _PricesPageState extends State<PricesPage> {
     return BlocBuilder<PricesBloc, PricesState>(
       builder: (context, state) {
         if (state is PricesSuccess) {
-          return Column(
-            children: [
-              ExpansionTile(
-                initiallyExpanded: true,
-                title: const Text("Today"),
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      children: [
-                        Flexible(
-                            child: Row(
-                          children: [
-                            const Padding(
-                              padding: EdgeInsets.only(right: 5),
-                              child: FaIcon(FontAwesomeIcons.bitcoin),
-                            ),
-                            Text(state.response.data.base)
-                          ],
-                        )),
-                        Flexible(
-                            child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [Text("\$${state.response.data.amount}")],
-                        ))
-                      ],
-                    ),
-                  )
-                ],
-              )
-            ],
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Column(
+              children: [
+                TodayPrice(
+                    base: state.response.data.base,
+                    amount: state.response.data.amount),
+                const Divider(
+                  height: 2,
+                  color: Colors.grey,
+                ),
+                const TitleList(),
+                Expanded(
+                  child: ListView.builder(
+                      itemCount: 14,
+                      itemBuilder: (BuildContext context, int index) {
+                        return PriceCard(
+                          amount: "$index",
+                        );
+                      }),
+                )
+              ],
+            ),
           );
         }
 
