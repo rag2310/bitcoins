@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/*WIDGET PARA MOSTRAR CARGA DE INFORMACION*/
 class Loading extends StatelessWidget {
   const Loading({Key? key}) : super(key: key);
 

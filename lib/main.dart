@@ -18,6 +18,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    /*MANEJO DE MULTIPROVIDER PARA EL USO DE LOS BLOCS*/
     return MultiBlocProvider(
       providers: [
         BlocProvider<PricesBloc>(

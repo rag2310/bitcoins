@@ -5,10 +5,12 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'details_event.dart';
+
 part 'details_state.dart';
 
 class DetailsBloc extends Bloc<DetailsEvent, DetailsState> {
   DetailsBloc(Details details) : super(DetailsInitial()) {
+    /*EVENTO DE INICIO*/
     on<DetailsStarted>((event, emit) async {
       bool internet = await ConnectionStatus.internal().checkConnection();
       emit(DetailsInitial());
@@ -18,6 +20,7 @@ class DetailsBloc extends Bloc<DetailsEvent, DetailsState> {
       } else {}
     });
 
+    /*EVENTO DE PROCESAMIENTO DE DATOS*/
     on<_DetailsGetting>((event, emit) {
       if (!event.response.error) {
         emit(DetailsSuccess(event.response as Success));

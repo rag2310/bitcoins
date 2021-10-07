@@ -1,7 +1,10 @@
+import 'dart:ffi';
+
 import 'package:bitcoins/data/model/data.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+/*CARTA GENERICA PARA MOSTRAR LOS PRECIOS*/
 class PriceCard extends StatefulWidget {
   const PriceCard({Key? key, required this.data, required this.onClick})
       : super(key: key);
@@ -67,7 +70,7 @@ class _PriceCardState extends State<PriceCard> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Text(
-                              "${widget.data.currency} ${widget.data.amount}",
+                              "${widget.data.currency} ${double.parse(widget.data.amount).toStringAsFixed(2) }",
                               style: const TextStyle(fontSize: 20),
                             )
                           ],

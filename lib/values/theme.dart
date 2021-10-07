@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/*COLOR PRIMARIO PARA EL TEMA DEL APP*/
 const MaterialColor primaryColor = MaterialColor(
   4280692811,
   <int, Color>{

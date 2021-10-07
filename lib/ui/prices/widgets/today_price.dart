@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+/*WIDGET PARA MOSTRAS EL PRECIO DEL DIA DEL BITCOIN*/
 class TodayPrice extends StatefulWidget {
   const TodayPrice(
       {Key? key,

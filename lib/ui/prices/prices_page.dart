@@ -7,6 +7,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+
+/*WIDGET PRINCIPAL DONDE SE MUESTRAN LOS PRECIOS DE DOS SEMANAS ATRAS Y DEL DIA DE HOY*/
 class PricesPage extends StatefulWidget {
   const PricesPage({Key? key}) : super(key: key);
 
@@ -17,6 +19,7 @@ class PricesPage extends StatefulWidget {
 class _PricesPageState extends State<PricesPage> {
   @override
   void initState() {
+    /*INICIAMOS EL EVENTO PricesStarted*/
     context.read<PricesBloc>().add(const PricesStarted());
     super.initState();
   }
@@ -25,6 +28,7 @@ class _PricesPageState extends State<PricesPage> {
   Widget build(BuildContext context) {
     return BlocBuilder<PricesBloc, PricesState>(
       builder: (context, state) {
+        /*VALIDAMOS EL ESTADO PricesSuccess*/
         if (state is PricesSuccess) {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -61,10 +65,14 @@ class _PricesPageState extends State<PricesPage> {
           );
         }
 
+
+        /*VALIDAMOS EL ESTADO PricesError*/
         if (state is PricesError) {
           return Error(msg: state.response.msgError);
         }
 
+
+        /*VALIDAMOS EL ESTADO PricesNotInternet*/
         if (state is PricesNotInternet) {
           return const Error(msg: "Without Internet");
         }

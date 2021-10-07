@@ -1,5 +1,6 @@
 part of 'prices_bloc.dart';
 
+/*ESTADOS DE prices_bloc.dart*/
 abstract class PricesState extends Equatable {
   const PricesState();
 

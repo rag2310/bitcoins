@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/*WIDGET QUE MUESTRA EL TITULO DE LA LISTA DE LOS PRECIOS DE DOS SEMANAS*/
 class TitleList extends StatelessWidget {
   const TitleList({Key? key}) : super(key: key);
 

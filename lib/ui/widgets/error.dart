@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+
+/*WIDGET QUE MUESTRA LOS ERRORES*/
 class Error extends StatefulWidget {
   const Error({Key? key, required this.msg}) : super(key: key);
 

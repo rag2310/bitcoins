@@ -1,6 +1,8 @@
 import 'package:bitcoins/values/theme.dart';
 import 'package:flutter/material.dart';
 
+
+/*WIDGET CON LA PAGINA PADRE DE TODAS LAS DEMAS*/
 class MainPage extends StatefulWidget {
   const MainPage({Key? key, required this.child, this.title = "Bitcoins"})
       : super(key: key);

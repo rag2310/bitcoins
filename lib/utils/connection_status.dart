@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:io';
 
+
+/*VERIFICAMOS LA CONEXION A INTERNET*/
 class ConnectionStatus {
   static final ConnectionStatus _instance = ConnectionStatus.internal();
 

@@ -1,5 +1,6 @@
 part of 'prices_bloc.dart';
 
+/*EVENTOS DE prices_bloc.dart*/
 abstract class PricesEvent extends Equatable {
   const PricesEvent();
 
@@ -18,4 +19,17 @@ class _PricesGetting extends PricesEvent {
 
   @override
   List<Object> get props => [response];
+}
+
+/*class _PricesUpdate extends PricesEvent {
+  const _PricesUpdate(this.response);
+
+  final Response response;
+
+  @override
+  List<Object> get props => [response];
+}*/
+
+class _PricesRefresh extends PricesEvent {
+  const _PricesRefresh();
 }

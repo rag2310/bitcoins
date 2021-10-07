@@ -5,6 +5,7 @@ import 'package:bitcoins/ui/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+/*WIDGET CON EL DETALLE DE LOS PRECIOS DE LAS DIVISAS USD,EUR Y COP*/
 class DetailsPage extends StatefulWidget {
   const DetailsPage({Key? key, required this.data}) : super(key: key);
 
@@ -17,6 +18,8 @@ class DetailsPage extends StatefulWidget {
 class _DetailsPageState extends State<DetailsPage> {
   @override
   void initState() {
+
+    /*INICIAMOS EL EVENTO DetailsStarted*/
     context.read<DetailsBloc>().add(DetailsStarted(date: widget.data.date));
     super.initState();
   }

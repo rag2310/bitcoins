@@ -1,5 +1,6 @@
 part of 'details_bloc.dart';
 
+/*ESTADOS DE details_bloc.dart*/
 abstract class DetailsState extends Equatable {
   const DetailsState();
 
