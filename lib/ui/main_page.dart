@@ -2,9 +2,11 @@ import 'package:bitcoins/values/theme.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({Key? key, required this.child}) : super(key: key);
+  const MainPage({Key? key, required this.child, this.title = "Bitcoins"})
+      : super(key: key);
 
   final Widget child;
+  final String title;
 
   @override
   _MainPageState createState() => _MainPageState();
@@ -15,7 +17,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Bitcoins"),
+        title: Text(widget.title),
         elevation: 0,
       ),
       body: Stack(

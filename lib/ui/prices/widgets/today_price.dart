@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class TodayPrice extends StatefulWidget {
-  const TodayPrice({Key? key, required this.base, required this.amount})
+  const TodayPrice(
+      {Key? key,
+      required this.base,
+      required this.amount,
+      required this.currency})
       : super(key: key);
 
   final String base;
   final String amount;
+  final String currency;
 
   @override
   _TodayPriceState createState() => _TodayPriceState();
@@ -39,7 +44,7 @@ class _TodayPriceState extends State<TodayPrice> {
                           ),
                         ),
                         Text(
-                          widget.base,
+                          "${widget.base} to ${widget.currency}",
                           style: const TextStyle(
                               color: Colors.white, fontSize: 16),
                         )

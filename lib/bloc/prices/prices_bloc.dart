@@ -4,9 +4,8 @@ import 'package:bitcoins/utils/connection_status.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-part 'prices_state.dart';
-
 part 'prices_event.dart';
+part 'prices_state.dart';
 
 class PricesBloc extends Bloc<PricesEvent, PricesState> {
   PricesBloc(Prices prices) : super(PricesInitial()) {

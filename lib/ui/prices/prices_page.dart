@@ -1,9 +1,8 @@
-import 'package:bitcoins/bloc/prices/prices_bloc.dart';
-import 'package:bitcoins/ui/prices/widgets/price_card.dart';
+import 'package:bitcoins/bloc/prices/prices_barrel.dart';
+import 'package:bitcoins/ui/details/details_page.dart';
 import 'package:bitcoins/ui/prices/widgets/title_list.dart';
 import 'package:bitcoins/ui/prices/widgets/today_price.dart';
-import 'package:bitcoins/ui/widgets/error.dart';
-import 'package:bitcoins/ui/widgets/loading.dart';
+import 'package:bitcoins/ui/widgets/widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,8 +31,10 @@ class _PricesPageState extends State<PricesPage> {
             child: Column(
               children: [
                 TodayPrice(
-                    base: state.response.data.base,
-                    amount: state.response.data.amount),
+                  base: state.response.data.base,
+                  amount: state.response.data.amount,
+                  currency: state.response.data.currency,
+                ),
                 const Divider(
                   height: 2,
                   color: Colors.grey,
@@ -43,8 +44,15 @@ class _PricesPageState extends State<PricesPage> {
                   child: ListView.builder(
                       itemCount: state.response.listData.length,
                       itemBuilder: (BuildContext context, int index) {
+                        var data = state.response.listData[index];
                         return PriceCard(
-                          data: state.response.listData[index],
+                          data: data,
+                          onClick: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => DetailsPage(
+                                      data: data,
+                                    )));
+                          },
                         );
                       }),
                 )
