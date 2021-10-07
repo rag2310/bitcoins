@@ -57,6 +57,10 @@ class _PricesPageState extends State<PricesPage> {
           return Error(msg: state.response.msgError);
         }
 
+        if (state is PricesNotInternet) {
+          return const Error(msg: "Without Internet");
+        }
+
         return const Loading();
       },
     );

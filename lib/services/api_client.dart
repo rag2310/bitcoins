@@ -37,14 +37,17 @@ class ApiClient {
     } else {
       url = Uri.https(BASE_URL, PRICE_URL);
     }
-
-    var response = await http.get(url);
-    if (response.statusCode == 200) {
-      var jsonResponse =
-          convert.jsonDecode(response.body) as Map<String, dynamic>;
-      return Data.fromJson(jsonResponse['data']);
+    try {
+      var response = await http.get(url);
+      if (response.statusCode == 200) {
+        var jsonResponse =
+        convert.jsonDecode(response.body) as Map<String, dynamic>;
+        return Data.fromJson(jsonResponse['data']);
+      }
+      return null;
+    }catch(e){
+      return null;
     }
-    return null;
   }
 
   Future<List<Data>> _getLastWeeksPrices() async {

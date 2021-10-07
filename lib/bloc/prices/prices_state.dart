@@ -27,6 +27,6 @@ class PricesError extends PricesState {
   List<Object> get props => [response];
 }
 
-/*class PricesComplete extends PricesState {
-  const PricesComplete();
-}*/
+class PricesNotInternet extends PricesState {
+  const PricesNotInternet();
+}
